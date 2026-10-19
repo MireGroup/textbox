@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#000000">
+<title>Школа бокса «Пересвет». Тренировки для детей и взрослых в Москве</title>
+<meta name="description" content="Школа бокса «Пересвет» в Москве: группы для детей и взрослых, индивидуальные тренировки, подготовка к соревнованиям, сборы. Залы у метро Таганская и Сокольники.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Oswald:wght@500;700&family=Golos+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#000;--panel:#0a0a0a;--panel2:#141414;--ink:#fff;--muted:#a8a8a8;
+  --red:#e10613;--red-hi:#ff2b39;--red-lo:#7d030c;--line:rgba(255,255,255,.14);
+  --display:'Oswald','Bebas Neue','Arial Narrow',Impact,sans-serif;
+  --body:'Golos Text','Onest','Segoe UI',Roboto,Arial,sans-serif;
+  --script:'Marck Script','Segoe Script','Brush Script MT',cursive;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}p{margin:0}img{max-width:100%}
+h1,h2,h3{overflow-wrap:break-word;font-family:var(--display);font-weight:700;margin:0;text-transform:uppercase;line-height:1;letter-spacing:.01em}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.wrap{width:min(1240px,100% - 48px);margin-inline:auto}
+main{position:relative;z-index:2}
+
+/* ===== atmosphere ===== */
+#fx{position:fixed;inset:0;z-index:1;pointer-events:none}
+.grain{position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.08;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.2 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-6%,-2%)}80%{transform:translate(5%,4%)}100%{transform:translate(0,0)}}
+.vig{position:fixed;inset:0;z-index:89;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 58%,rgba(0,0,0,.6) 100%)}
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--red);transform-origin:0 50%;transform:scaleX(0);z-index:120;box-shadow:0 0 14px var(--red)}
+
+/* ===== loader ===== */
+.loader{position:fixed;inset:0;z-index:150;pointer-events:none;animation:ldHide .01s linear 2.3s forwards}
+.loader .p{position:absolute;top:0;bottom:0;width:53%;background:#000}
+.loader .pl{left:0;clip-path:polygon(0 0,100% 0,90% 100%,0 100%);animation:ldL .9s cubic-bezier(.8,0,.2,1) 1.35s forwards}
+.loader .pr{right:0;clip-path:polygon(10% 0,100% 0,100% 100%,0 100%);animation:ldR .9s cubic-bezier(.8,0,.2,1) 1.35s forwards}
+.loader .pl::after,.loader .pr::after{content:"";position:absolute;top:0;bottom:0;width:6px;background:var(--red);box-shadow:0 0 30px var(--red)}
+.loader .pl::after{right:10%;transform:skewX(-6deg)}.loader .pr::after{left:10%;transform:skewX(-6deg)}
+.loader .mk{position:absolute;inset:0;display:grid;place-items:center;animation:mkOut .35s ease 1.15s forwards}
+.loader .mk div{text-align:center}
+.loader img{width:96px;height:auto;display:block;margin:0 auto 18px;animation:pop .7s var(--ease) both}
+.loader b{font-family:var(--display);font-size:clamp(26px,5vw,42px);letter-spacing:.38em;margin-right:-.38em;display:block;animation:fadeUp .8s var(--ease) .2s both}
+.loader i{display:block;height:3px;background:var(--red);margin:18px auto 0;width:0;animation:bar 1s var(--ease) .3s forwards;box-shadow:0 0 18px var(--red)}
+@keyframes ldL{to{transform:translateX(-110%)}}@keyframes ldR{to{transform:translateX(110%)}}
+@keyframes mkOut{to{opacity:0;transform:scale(1.2)}}@keyframes ldHide{to{visibility:hidden}}
+@keyframes pop{from{opacity:0;transform:scale(.4) rotate(-20deg)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes bar{to{width:min(260px,60vw)}}
+
+/* ===== buttons ===== */
+.btn{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 34px;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:#fff;background:var(--red);border:0;cursor:pointer;clip-path:polygon(16px 0,100% 0,calc(100% - 16px) 100%,0 100%);overflow:hidden;transition:transform .25s var(--ease),background .25s}
+.btn::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s var(--ease)}
+.btn:hover{transform:translateY(-3px);background:var(--red-hi)}.btn:hover::before{transform:translateX(120%)}
+.btn.line{background:#fff}
+.btn.line::after{content:"";position:absolute;inset:2px;z-index:-1;background:var(--btn-in,#000);clip-path:polygon(15px 0,100% 0,calc(100% - 15px) 100%,0 100%);transition:background .25s}
+.btn.line:hover{color:#000}.btn.line:hover::after{background:#fff}
+.btn.sm{min-height:44px;padding:0 22px;font-size:14px}
+.btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.link-arrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:14px;text-decoration:none;color:#fff}
+.link-arrow svg{width:22px;height:14px;stroke:var(--red-hi);fill:none;stroke-width:2.2;transition:transform .3s var(--ease)}
+.link-arrow:hover svg{transform:translateX(6px)}
+
+/* ===== nav ===== */
+.nav{position:fixed;inset:0 0 auto 0;z-index:80;padding-top:env(safe-area-inset-top,0px);transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.scrolled,.nav.open{background:rgba(8,6,6,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px;height:78px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{height:54px;width:auto;display:block}
+.menu{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:15px}
+.menu a{text-decoration:none;color:#dcdcdc;position:relative;padding:6px 0}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--red);transition:width .3s var(--ease)}
+.menu a:hover{color:#fff}.menu a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:12px}
+.social{display:flex;gap:10px}
+.social a{width:38px;height:38px;border-radius:50%;background:var(--red);display:grid;place-items:center;transition:transform .25s var(--ease),background .25s}
+.social a:hover{transform:translateY(-3px) scale(1.06);background:var(--red-hi)}
+.social svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.nav-tel{font-weight:700;text-decoration:none;white-space:nowrap;margin-right:6px}
+.menu-tel,.callbtn,.dock{display:none}
+.burger{display:none;width:44px;height:44px;background:none;border:1px solid var(--line);cursor:pointer;padding:0;position:relative}
+.burger span,.burger span::before,.burger span::after{position:absolute;left:11px;right:11px;height:2px;background:#fff;content:"";transition:transform .25s,top .25s}
+.burger span{top:21px}.burger span::before{left:0;right:0;top:-7px}.burger span::after{left:0;right:0;top:7px}
+.nav.open .burger span{background:transparent}
+.nav.open .burger span::before{top:0;transform:rotate(45deg)}.nav.open .burger span::after{top:0;transform:rotate(-45deg)}
+
+/* ===== hero ===== */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:grayscale(.75) contrast(1.15) brightness(.6);transform:scale(1.08)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(520px circle at var(--mx,70%) var(--my,40%),rgba(225,6,19,.3),transparent 70%),
+  linear-gradient(90deg,#000 6%,rgba(0,0,0,.82) 42%,rgba(0,0,0,.35) 100%),
+  linear-gradient(to top,#000 0,transparent 28%)}
+.beam{position:absolute;top:-20%;right:14%;width:520px;height:140%;background:linear-gradient(180deg,rgba(255,255,255,.16),transparent 70%);transform:rotate(18deg);filter:blur(30px);opacity:.5;mix-blend-mode:screen;animation:beam 7s ease-in-out infinite alternate;z-index:-1}
+.beam.b2{right:38%;width:300px;opacity:.25;transform:rotate(-12deg);animation-duration:9s}
+@keyframes beam{from{opacity:.2}to{opacity:.6}}
+.smoke{position:absolute;border-radius:50%;filter:blur(70px);opacity:.28;animation:drift 18s ease-in-out infinite alternate;z-index:-1}
+.smoke.s1{width:560px;height:360px;left:-10%;bottom:-8%;background:#6b0711}
+.smoke.s2{width:620px;height:380px;right:-8%;bottom:6%;background:#444;animation-duration:24s;animation-delay:-8s}
+@keyframes drift{from{transform:translate3d(-40px,10px,0) scale(1)}to{transform:translate3d(60px,-30px,0) scale(1.25)}}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:center;padding:130px 0 120px}
+.hero-text{position:relative;z-index:3}
+.hin{opacity:0;animation:fadeUp .9s var(--ease) forwards}
+.hero-text .hin:nth-child(1){animation-delay:2s}.hero-text .hin:nth-child(2){animation-delay:2.12s}.hero-text .hin:nth-child(3){animation-delay:2.26s}.hero-text .hin:nth-child(4){animation-delay:2.4s}
+.script{font-family:var(--script);color:var(--red-hi);font-size:clamp(28px,3.6vw,48px);line-height:1.1;text-transform:none;font-weight:400;display:block}
+.hero h1{font-size:clamp(50px,8vw,128px);line-height:.92;margin-top:10px}
+.hero h1 em{display:block;font-style:normal;color:var(--red);text-shadow:0 0 60px rgba(225,6,19,.55),0 6px 0 var(--red-lo)}
+.hero .sub{margin-top:26px;font-size:clamp(17px,1.7vw,21px);color:#d6d6d6;max-width:27em}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.scrollcue{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);text-align:center;text-decoration:none;z-index:3}
+.scrollcue::after{content:"";display:block;width:1px;height:38px;margin:8px auto 0;background:linear-gradient(var(--red),transparent);animation:cue 2s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+.stage3d{perspective:1500px;position:relative;z-index:2;opacity:0;animation:fadeUp 1.1s var(--ease) 2.2s forwards}
+.scene{position:relative;aspect-ratio:1/1.1;max-height:74vh;margin-left:auto;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s var(--ease)}
+.scene.live{transition:transform .1s linear}
+.plane{position:absolute;margin:0;overflow:hidden;background:#111}
+.plane img{width:100%;height:100%;object-fit:cover;display:block}
+.cutshape{clip-path:polygon(0 0,100% 0,100% 90%,88% 100%,0 100%)}
+.p-back{inset:3% -3% 4% 24%;background:linear-gradient(160deg,var(--red-hi),var(--red) 50%,var(--red-lo));transform:translate3d(24px,24px,-110px)}
+.p-main{inset:4% 0 6% 14%;transform:translateZ(0)}
+.p-main img{object-position:50% 40%;filter:contrast(1.1) saturate(.9)}
+.p-main::after{content:"";position:absolute;inset:0;background:linear-gradient(205deg,rgba(225,6,19,.4),transparent 55%),linear-gradient(to top,rgba(0,0,0,.8),transparent 40%)}
+.p-sub{left:0;bottom:3%;width:52%;aspect-ratio:3/2;border:3px solid #fff;transform:translateZ(120px);box-shadow:0 36px 70px rgba(0,0,0,.8)}
+.p-frame{inset:-12px -10px -12px 6%;background:none;border:2px solid rgba(255,255,255,.35);transform:translateZ(46px);pointer-events:none}
+.badge3d{position:absolute;right:-8px;top:7%;transform:translateZ(150px);display:flex;align-items:center;gap:14px;padding:16px 24px 16px 18px;background:#fff;color:#000;box-shadow:0 30px 60px rgba(0,0,0,.7);clip-path:polygon(0 0,100% 0,calc(100% - 14px) 100%,0 100%)}
+.badge3d b{font-family:var(--display);font-size:46px;line-height:.9;color:var(--red)}
+.badge3d span{font-size:13.5px;line-height:1.25;font-weight:500}
+.badge3d span strong{display:block;font-family:var(--display);font-size:16px;letter-spacing:.06em;text-transform:uppercase}
+
+/* ===== marquee + cut ===== */
+.mq{overflow:hidden;padding:clamp(26px,4vw,52px) 0;position:relative}
+.mq .row{display:flex;white-space:nowrap;font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(54px,10vw,150px);line-height:1.02;will-change:transform}
+.mq .row span{padding-right:.45em;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.75)}
+.mq .row span:nth-child(even){color:var(--red);-webkit-text-stroke:0}
+.mq .row.r2 span{-webkit-text-stroke-color:rgba(255,255,255,.25)}
+.mq .row.r2 span:nth-child(even){color:#fff}
+.cut{position:relative;z-index:3;height:10px;margin:-5px 0;background:linear-gradient(90deg,var(--red-lo),var(--red-hi),var(--red-lo));transform:skewY(-1.4deg);box-shadow:0 0 44px rgba(225,6,19,.7)}
+
+/* ===== common ===== */
+section{position:relative;padding:clamp(80px,10vw,140px) 0}
+.sec-dark{background:var(--panel)}
+.sec-title{font-size:clamp(36px,5.8vw,82px);line-height:.96}
+.sec-head{margin-bottom:clamp(36px,5vw,64px)}
+.sec-head .script{margin-bottom:6px}
+.lead{color:#d0d0d0;font-size:clamp(17px,1.6vw,20px);max-width:36em;margin-top:22px}
+.rule{display:block;width:60px;height:3px;background:var(--red);margin:20px 0 0;box-shadow:0 0 12px var(--red)}
+.js .wipe{clip-path:inset(-20% 100% -20% -2%);transform:translateX(-26px);transition:clip-path 1s var(--ease),transform 1s var(--ease)}
+.js .wipe.in{clip-path:inset(-20% -6% -20% -2%);transform:none}
+.js .rv{opacity:0;transform:translateY(46px);transition:opacity .9s ease,transform .9s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+.tilt{transform-style:preserve-3d;transition:transform .5s var(--ease),border-color .3s,box-shadow .3s}
+.tilt.is-moving{transition:transform .08s linear,border-color .3s,box-shadow .3s}
+.persp{perspective:1400px}
+
+/* ===== trio ===== */
+.trio{margin-top:-70px;position:relative;z-index:5;padding:0 0 clamp(60px,7vw,100px)}
+.trio .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tcard{position:relative;min-height:290px;background:#080808;border:1px solid var(--line);overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
+.tcard:hover{border-color:rgba(225,6,19,.8);box-shadow:0 40px 80px -30px rgba(225,6,19,.5)}
+.tcard .ph{position:absolute;right:0;top:0;bottom:0;width:62%;-webkit-mask-image:linear-gradient(to left,#000 35%,transparent);mask-image:linear-gradient(to left,#000 35%,transparent)}
+.tcard .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;filter:grayscale(1) contrast(1.15);transition:filter .6s,transform .9s var(--ease);transform:scale(1.04)}
+.tcard:hover .ph img{filter:grayscale(0);transform:scale(1.12)}
+.tcard .tx{position:relative;z-index:2;padding:34px 30px;height:100%;display:flex;flex-direction:column;justify-content:space-between;gap:20px;transform:translateZ(40px)}
+.tcard h3{font-size:clamp(32px,3.2vw,46px)}
+.tcard p{color:#d8d8d8;font-size:15.5px;max-width:15em;margin-top:14px;line-height:1.5}
+.tcard .btn{align-self:flex-start;min-height:46px;padding:0 24px;font-size:13px}
+
+/* ===== about ===== */
+.about .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(34px,6vw,90px);align-items:center}
+.about .persp{width:100%}
+.framed{width:100%;position:relative;aspect-ratio:4/4.4;border:10px solid var(--red);box-shadow:24px 24px 0 rgba(225,6,19,.18),0 40px 80px -30px rgba(225,6,19,.5);background:#111;overflow:hidden}
+.framed img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin:30px 0 36px;padding:0;list-style:none}
+.feats li{display:flex;gap:12px;align-items:flex-start;font-weight:500;line-height:1.35}
+.feats svg{flex:none;width:26px;height:26px;stroke:var(--red-hi);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+
+/* halls strip */
+.halls{padding-top:0}
+.halls .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;perspective:1400px}
+.halls figure{margin:0;aspect-ratio:3/4;overflow:hidden;position:relative;background:#111;border:1px solid var(--line)}
+.halls figure img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.35) contrast(1.05);transition:filter .6s,transform .9s var(--ease);transform:scale(1.03)}
+.halls figure:hover img{filter:none;transform:scale(1.1)}
+.halls figure::after{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.halls figure:hover::after{transform:scaleX(1)}
+
+/* ===== stats ===== */
+.stats{background:linear-gradient(135deg,var(--red) 0,var(--red-lo) 100%);overflow:hidden;padding:clamp(60px,7vw,96px) 0}
+.stats::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(0,0,0,.12) 0 2px,transparent 2px 26px)}
+.stats .wrap{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat{padding-left:24px;border-left:3px solid rgba(255,255,255,.75)}
+.stat b{display:block;font-family:var(--display);font-size:clamp(54px,7.4vw,112px);line-height:.95;font-weight:700}
+.stat b small{font-size:.42em;margin-left:6px;letter-spacing:.04em}
+.stat>span{display:block;font-size:15px;color:rgba(255,255,255,.92);margin-top:8px;max-width:12em;line-height:1.35}
+
+/* ===== mosaic ===== */
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);perspective:1600px}
+.mt{position:relative;min-height:330px;background:var(--panel2);padding:34px 28px;display:flex;flex-direction:column;gap:16px;justify-content:space-between;overflow:hidden}
+.mt::before{content:"";position:absolute;inset:0;background:radial-gradient(300px circle at var(--mx,50%) var(--my,0),rgba(225,6,19,.28),transparent 60%);opacity:0;transition:opacity .3s}
+.mt:hover::before{opacity:1}
+.mt .ic{width:58px;height:58px;display:grid;place-items:center;border:2px solid var(--red);position:relative}
+.mt .ic svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mt>div{min-width:0}
+.mt h3{font-size:clamp(22px,1.9vw,30px)}
+.mt p{color:#bdbdbd;font-size:15px;line-height:1.5;margin-top:10px}
+.mp{position:relative;min-height:330px;overflow:hidden;background:#111}
+.mp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.15) brightness(.85);transition:filter .6s,transform .9s var(--ease);transform:scale(1.04)}
+.mp:hover img{filter:none;transform:scale(1.12)}
+.mp::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:4px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.mp:hover::after{transform:scaleX(1)}
+.mt:nth-child(1){grid-area:t1}.mp:nth-child(2){grid-area:p1}.mt:nth-child(3){grid-area:t2}.mp:nth-child(4){grid-area:p2}
+.mt:nth-child(5){grid-area:t3}.mp:nth-child(6){grid-area:p3}.mt:nth-child(7){grid-area:t4}.mp:nth-child(8){grid-area:p4}
+@media (min-width:1001px){.mosaic{grid-template-areas:"t1 p1 t2 p2" "p3 t3 p4 t4"}}
+
+/* ===== coaches ===== */
+.coaches{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;perspective:1400px}
+.coach{background:var(--panel2);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
+.coach:hover{border-color:rgba(225,6,19,.7);box-shadow:0 40px 80px -30px rgba(225,6,19,.45)}
+.coach .pic{position:relative;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1a1a,#0a0a0a);display:grid;place-items:center;overflow:hidden}
+.coach .pic::before{content:attr(data-i);font-family:var(--display);font-weight:700;font-size:clamp(90px,10vw,140px);line-height:1;color:transparent;-webkit-text-stroke:2px rgba(225,6,19,.8);transform:translateZ(40px)}
+.coach .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.coach .pic::after{content:"";position:absolute;inset:auto 0 0 0;height:50%;background:linear-gradient(to top,var(--panel2),transparent);pointer-events:none}
+.coach .bd{padding:6px 26px 30px;display:flex;flex-direction:column;gap:12px;transform:translateZ(30px)}
+.coach h3{font-size:clamp(22px,2vw,28px);line-height:1.1}
+.coach .role{color:var(--red-hi);font-size:13.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.coach ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:9px;color:#c9c9c9;font-size:15px;line-height:1.45}
+.coach li{padding-left:18px;position:relative}
+.coach li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:3px;background:var(--red)}
+
+/* ===== prices ===== */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+.tab{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:#d6d6d6;background:var(--panel2);border:1px solid var(--line);padding:15px 28px;cursor:pointer;transition:background .2s,color .2s;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.tab:hover{color:#fff}.tab[aria-selected="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.ppanel{display:none;grid-template-columns:1fr 1.1fr;gap:clamp(24px,4vw,50px);align-items:start}
+.ppanel.on{display:grid;animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.pcard{background:var(--panel2);border:1px solid var(--line);padding:clamp(24px,3vw,40px);position:relative}
+.pcard::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,var(--red),transparent)}
+.pcard h3{font-size:clamp(24px,2.4vw,32px);margin-bottom:6px}
+.pcard .sub{color:var(--muted);font-size:14.5px}
+.prow{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.prow:last-child{border-bottom:0}
+.prow span{color:#ddd}.prow span small{display:block;color:var(--muted);font-size:13.5px}
+.prow b{font-family:var(--display);font-size:clamp(28px,3vw,40px);white-space:nowrap}
+.prow b small{font-family:var(--body);font-size:.4em;color:var(--muted);font-weight:400;margin-left:4px}
+.sched{display:grid;gap:14px}
+.day{background:var(--panel2);border:1px solid var(--line);padding:20px 24px;display:grid;grid-template-columns:150px 1fr;gap:12px 20px;align-items:start}
+.day h4{margin:0;font-family:var(--display);font-size:19px;text-transform:uppercase;letter-spacing:.04em;line-height:1.2;color:var(--red-hi)}
+.slots{display:flex;flex-wrap:wrap;gap:10px}
+.slot{display:inline-flex;align-items:baseline;gap:8px;padding:8px 14px;background:#000;border:1px solid var(--line);font-size:14.5px}
+.slot b{font-family:var(--display);font-size:18px;letter-spacing:.03em}
+.extra{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.extra .pcard{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:26px 30px}
+.extra .pcard b{font-family:var(--display);font-size:clamp(30px,3.4vw,44px)}
+.extra .pcard span{color:#ddd}
+
+/* ===== ring ===== */
+.hall{overflow:hidden}
+.ringwrap{position:relative;perspective:1700px;height:clamp(330px,46vw,560px);margin-top:10px;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.ringwrap.drag{cursor:grabbing}
+.ringfloor{position:absolute;left:50%;bottom:6%;width:min(900px,90%);height:130px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(225,6,19,.5),transparent 68%);filter:blur(10px)}
+.ring{--w:clamp(250px,33vw,460px);--r:calc(var(--w)*1.36);position:absolute;left:50%;top:46%;width:var(--w);height:calc(var(--w)*.66);margin-left:calc(var(--w)/-2);margin-top:calc(var(--w)*-.33);transform-style:preserve-3d}
+.face{position:absolute;inset:0;margin:0;transform:rotateY(calc(var(--i)*45deg)) translateZ(var(--r));backface-visibility:hidden;-webkit-backface-visibility:hidden;border:3px solid #fff;background:#111;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.7)}
+.face img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;-webkit-user-drag:none}
+.face figcaption{position:absolute;left:0;bottom:0;padding:8px 26px 8px 16px;background:var(--red);font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.1em;text-transform:uppercase;clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.ringctrl{display:flex;justify-content:center;align-items:center;gap:20px;margin-top:6px;position:relative;z-index:2}
+.arrow{width:56px;height:56px;background:var(--panel2);border:1px solid var(--line);cursor:pointer;display:grid;place-items:center;transition:background .2s;clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%)}
+.arrow:hover{background:var(--red)}
+.arrow svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.hint{font-size:14px;color:var(--muted);min-width:11em;text-align:center}
+
+/* ===== articles ===== */
+.arts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;perspective:1400px}
+.art{background:var(--panel2);border:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden;text-decoration:none}
+.art:hover{border-color:rgba(225,6,19,.7);box-shadow:0 40px 80px -30px rgba(225,6,19,.4)}
+.art .im{position:relative;aspect-ratio:16/10;overflow:hidden;background:#111}
+.art .im img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);transition:filter .6s,transform .9s var(--ease);transform:scale(1.03)}
+.art:hover .im img{filter:none;transform:scale(1.1)}
+.art .dt{position:absolute;left:0;top:18px;background:var(--red);padding:6px 16px 6px 14px;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.08em;clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%);padding-right:24px}
+.art .bd{padding:24px 26px 28px;display:flex;flex-direction:column;gap:12px;flex:1;transform:translateZ(24px)}
+.art h3{font-size:clamp(21px,1.9vw,26px);line-height:1.12}
+.art p{color:#bdbdbd;font-size:15px;line-height:1.5;flex:1}
+
+/* ===== reviews ===== */
+.rev{background:var(--panel)}
+.rev .box{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(24px,5vw,70px);align-items:center;border:1px solid var(--line);padding:clamp(28px,4vw,56px);background:linear-gradient(120deg,rgba(225,6,19,.12),transparent 50%)}
+.rev .big{font-family:var(--display);font-weight:700;font-size:clamp(90px,12vw,170px);line-height:.85;color:var(--red-hi);text-shadow:0 0 50px rgba(225,6,19,.5)}
+.stars{font-size:34px;letter-spacing:.12em;line-height:1;background:linear-gradient(90deg,#fff 90%,#4a4a4a 90%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.rev h3{font-size:clamp(24px,2.8vw,38px);margin:14px 0 8px}
+.rev p{color:#c8c8c8}
+
+/* ===== booking ===== */
+.book{overflow:hidden;background:var(--panel)}
+.book::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 500px at 100% 0,rgba(225,6,19,.28),transparent 70%),radial-gradient(500px 400px at 0 100%,rgba(225,6,19,.16),transparent 70%)}
+.book .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.bigtel{display:inline-block;margin-top:28px;font-family:var(--display);font-weight:700;font-size:clamp(32px,4.6vw,56px);text-decoration:none;line-height:1}
+.bigtel:hover{color:var(--red-hi)}
+.formcard{position:relative;padding:clamp(24px,3.4vw,44px);background:#000;border:1px solid var(--line);clip-path:polygon(0 0,100% 0,100% calc(100% - 30px),calc(100% - 30px) 100%,0 100%)}
+.formcard::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,var(--red),transparent)}
+form{display:grid;gap:16px}
+label{display:block;font-size:13.5px;color:var(--muted);margin-bottom:6px}
+input,select{width:100%;min-height:58px;padding:0 18px;font:inherit;font-size:17px;color:#fff;background:var(--panel2);border:1px solid var(--line);border-radius:0;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,#fff 50%),linear-gradient(135deg,#fff 50%,transparent 50%);background-position:calc(100% - 22px) 26px,calc(100% - 16px) 26px;background-size:6px 6px;background-repeat:no-repeat}
+input::placeholder{color:#666}
+input:focus,select:focus{outline:0;border-color:var(--red);box-shadow:0 0 0 3px rgba(225,6,19,.35)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form .btn{width:100%}
+.tglink{text-align:center;font-size:15px;color:var(--muted)}
+.tglink a{color:#fff}
+.note{font-size:14px;color:var(--muted);min-height:1.5em}
+.note a{color:#fff}
+
+/* ===== contacts ===== */
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:stretch}
+.hcard{background:var(--panel2);border:1px solid var(--line);padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:12px}
+.hcard .st{color:var(--red-hi);font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.1em}
+.hcard h3{font-size:clamp(26px,3vw,38px)}
+.hcard p{color:#c9c9c9}
+.hcard .link-arrow{margin-top:8px}
+.clist{margin:clamp(30px,4vw,50px) 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.clist div{padding:24px 24px 24px 0;border-bottom:1px solid var(--line)}
+.clist dt{color:var(--muted);font-size:14.5px}
+.clist dd{margin:4px 0 0;font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(19px,2.2vw,28px);line-height:1.15;word-break:break-word}
+.clist dd.mail{font-size:clamp(17px,1.7vw,22px);text-transform:none;letter-spacing:0;word-break:normal}
+.clist a{text-decoration:none}.clist a:hover{color:var(--red-hi)}
+.warn{margin-top:38px;color:var(--muted);font-size:14.5px}
+footer{position:relative;z-index:2;background:#000;padding:50px 0 calc(34px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);color:var(--muted);font-size:14.5px}
+footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;margin-bottom:30px}
+footer .logo img{height:64px}
+footer .menu{gap:22px;flex-wrap:wrap}
+footer .bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-top:24px;border-top:1px solid var(--line)}
+footer a{color:var(--muted)}footer a:hover{color:#fff}
+
+/* ===== responsive ===== */
+@media (hover:none){.scene{animation:sway 9s ease-in-out infinite alternate}}
+@keyframes sway{from{transform:rotateY(-8deg) rotateX(3deg)}to{transform:rotateY(8deg) rotateX(-3deg)}}
+@media (max-width:1180px){
+  .menu,.nav-tel,.nav-right .social{display:none}
+  .burger{display:block}
+  .callbtn{display:grid;place-items:center;width:44px;height:44px;background:var(--red)}
+  .callbtn svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .nav.open .menu{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:#000;border-bottom:1px solid var(--line);padding:6px 24px 20px}
+  .nav.open .menu a{display:block;padding:17px 0;font-size:19px;border-bottom:1px solid var(--line)}
+  .nav.open .menu-tel{display:block}
+  .nav.open .menu .menu-tel a{color:var(--red-hi);font-family:var(--display);font-weight:700;font-size:26px;border:0}
+  .mosaic{grid-template-columns:repeat(2,1fr)}
+  .coaches,.arts{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:1000px){
+  .hero{min-height:auto}
+  .hero .wrap{grid-template-columns:1fr;padding:108px 0 110px;gap:50px}
+  .scene{width:min(100% - 24px,520px);margin:0 auto 0 0;max-height:none}
+  .badge3d{right:-14px}
+  .trio .grid{grid-template-columns:1fr}
+  .about .wrap,.book .wrap,.cgrid{grid-template-columns:minmax(0,1fr)}
+  .ppanel.on{grid-template-columns:1fr}
+  .stats .wrap{grid-template-columns:repeat(2,1fr);gap:34px 20px}
+  .rev .box{grid-template-columns:1fr;text-align:left}
+  .clist{grid-template-columns:1fr 1fr}
+  .halls .strip{grid-template-columns:repeat(2,1fr)}
+  .scrollcue{display:none}
+  body{padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))}
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:85;display:grid;grid-template-columns:1fr 1.4fr;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(0,0,0,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);transition:transform .35s ease}
+  .dock.hide{transform:translateY(115%)}
+  .dock .btn{min-height:50px;padding:0 10px;font-size:15px}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .nav .wrap{height:66px}.logo img{height:46px}
+  .hero h1{font-size:clamp(36px,12vw,56px)}
+  .hero .sub{margin-top:20px;font-size:16.5px}
+  .cta .btn{width:100%;padding:0 18px;letter-spacing:.06em}
+  section{padding:66px 0}
+  .sec-title{font-size:clamp(30px,9.4vw,48px)}
+  .about .sec-title{font-size:clamp(25px,7vw,40px)}
+  .trio{margin-top:-30px}
+  .tcard{min-height:250px}
+  .tcard .tx{padding:26px 22px}
+  .mosaic,.coaches,.arts{grid-template-columns:1fr}
+  .mt,.mp{min-height:260px}
+  .feats{grid-template-columns:1fr}
+  .stat{padding-left:16px}.stat b{font-size:clamp(46px,14vw,72px)}
+  .badge3d{padding:12px 18px 12px 14px}.badge3d b{font-size:36px}
+  .tabs .tab{flex:1;text-align:center;padding:14px 10px;font-size:14px}
+  .day{grid-template-columns:1fr;padding:18px}
+  .extra{grid-template-columns:1fr}
+  .extra .pcard{padding:22px}
+  .two{grid-template-columns:1fr}
+  .ring{--w:min(66vw,300px)}.ringwrap{height:min(80vw,380px)}
+  .arrow{width:52px;height:52px}
+  .clist{grid-template-columns:1fr}
+  .halls .strip{gap:10px}
+  .formcard{padding:22px}
+  .framed{border-width:7px;box-shadow:14px 14px 0 rgba(225,6,19,.18)}
+}
+@media (max-width:360px){.hero h1{font-size:33px}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .js .rv,.js .wipe{opacity:1;transform:none;clip-path:none}
+  .hin,.stage3d{opacity:1}.loader{display:none}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<div class="loader" aria-hidden="true">
+  <div class="p pl"></div><div class="p pr"></div>
+  <div class="mk"><div><img src="logo.png" alt=""><b>ПЕРЕСВЕТ</b><i></i></div></div>
+</div>
+<div class="progress" id="progress"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="vig" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Школа бокса Пересвет, на главную"><img src="logo.png" alt="Школа бокса Пересвет, Москва" width="155" height="146"></a>
+    <ul class="menu" id="menu">
+      <li><a href="#about">О школе</a></li>
+      <li><a href="#programs">Направления</a></li>
+      <li><a href="#coaches">Тренеры</a></li>
+      <li><a href="#prices">Цены</a></li>
+      <li><a href="#hall">Фото</a></li>
+      <li><a href="#articles">Статьи</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+      <li class="menu-tel"><a href="tel:+79681801567">+7 (968) 180-15-67</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-tel" href="tel:+79681801567">+7 (968) 180-15-67</a>
+      <div class="social">
+        <a href="https://www.instagram.com/boxing_school_peresvet/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+        <a href="https://t.me/kropalev7" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l8-6"/></svg></a>
+        <a href="https://wa.me/79681801567" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 00-7.800 13.500L3 21l4.600-1.200A9 9 0 1012 3z"/><path d="M9 8.500c.300 2.500 2.700 5 5.500 5.500l1.200-1.200-1.800-1.300-.9.600c-.9-.4-1.900-1.400-2.300-2.300l.6-.9-1.300-1.800z"/></svg></a>
+      </div>
+      <a class="callbtn" href="tel:+79681801567" aria-label="Позвонить"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero" aria-label="Школа бокса Пересвет" style="padding:0">
+  <div class="hero-bg" aria-hidden="true"><img src="group-training-hall.webp" alt=""></div>
+  <div class="beam" aria-hidden="true"></div><div class="beam b2" aria-hidden="true"></div>
+  <div class="smoke s1" aria-hidden="true"></div><div class="smoke s2" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="script hin">Путь на ринг начинается в</span>
+      <h1 class="hin">Школа бокса <em>Пересвет</em></h1>
+      <p class="sub hin">Тренировки для детей и взрослых в залах у метро Таганская и Сокольники. Ведут мастера спорта.</p>
+      <div class="cta hin">
+        <a class="btn" href="#book">Записаться на тренировку</a>
+        <a class="btn line" href="#prices">Цены и расписание</a>
+      </div>
+    </div>
+    <div class="stage3d">
+      <div class="scene" id="scene">
+        <div class="plane p-back cutshape"></div>
+        <figure class="plane p-main cutshape"><img src="fight-ring-spectators-portrait.webp" alt="Бой юных боксёров на ринге школы Пересвет" width="960" height="1280"></figure>
+        <div class="plane p-frame cutshape"></div>
+        <figure class="plane p-sub"><img src="boxer-and-coach.webp" alt="Боксёр на тренировке с тренером" width="928" height="600"></figure>
+        <div class="badge3d"><b>4,5</b><span><strong>Хорошее место 2026</strong>11 оценок</span></div>
+      </div>
+    </div>
+  </div>
+  <a class="scrollcue" href="#about">Вниз</a>
+</section>
+
+<!-- ================= TRIO ================= -->
+<section class="trio" aria-label="Для кого тренировки">
+  <div class="wrap"><div class="grid persp">
+    <article class="tcard tilt rv">
+      <div class="ph"><img src="adults-sparring.webp" alt="Взрослые на спарринге" loading="lazy"></div>
+      <div class="tx"><div><h3>Взрослые</h3><p>Группы по уровню подготовки и персональные занятия.</p></div><a class="btn" href="#prices">Подробнее</a></div>
+    </article>
+    <article class="tcard tilt rv">
+      <div class="ph"><img src="kids-bag-training.webp" alt="Дети работают на мешке" loading="lazy"></div>
+      <div class="tx"><div><h3>Дети</h3><p>Отдельные группы для мальчиков и юношей, от новичков.</p></div><a class="btn" href="#prices">Подробнее</a></div>
+    </article>
+    <article class="tcard tilt rv">
+      <div class="ph"><img src="girl-punching-bag.webp" alt="Спортсменка бьёт по мешку" loading="lazy"></div>
+      <div class="tx"><div><h3>Индивидуально</h3><p>Один спортсмен, один тренер. План под ваши цели.</p></div><a class="btn" href="#prices">Подробнее</a></div>
+    </article>
+  </div></div>
+</section>
+
+<div class="mq" aria-hidden="true">
+  <div class="row r1" id="r1"><span>Техника</span><span>Выносливость</span><span>Характер</span><span>Дисциплина</span><span>Техника</span><span>Выносливость</span><span>Характер</span><span>Дисциплина</span></div>
+  <div class="row r2" id="r2"><span>Соревнования</span><span>Сила</span><span>Воля</span><span>Победа</span><span>Соревнования</span><span>Сила</span><span>Воля</span><span>Победа</span></div>
+</div>
+<div class="cut" aria-hidden="true"></div>
+
+<!-- ================= ABOUT ================= -->
+<section class="about sec-dark" id="about">
+  <div class="wrap">
+    <div class="persp rv"><div class="framed tilt" id="aboutImg"><img src="kids-sparring.webp" alt="Дети на спарринге в зале школы бокса" loading="lazy"></div></div>
+    <div>
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="script">О школе</span>
+        <h2 class="sec-title wipe">Профессиональная школа бокса</h2>
+        <span class="rule"></span>
+      </div>
+      <p class="lead rv">Тренировочный процесс строится на всестороннем физическом развитии и правильной технике. Мы опираемся на многолетний опыт советских и российских боксёров и тренеров. Группы формируются по возрасту и уровню подготовки: от семилетнего новичка до спортсмена, который выступает на ринге.</p>
+      <ul class="feats rv">
+        <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>Групповые и индивидуальные тренировки</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>Подготовка и выступления на соревнованиях</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>Квалифицированный тренерский состав</li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>Оборудованные залы в центре Москвы</li>
+      </ul>
+      <a class="btn rv" href="#book">Записаться</a>
+    </div>
+  </div>
+</section>
+
+<section class="halls sec-dark" aria-label="Залы школы">
+  <div class="wrap"><div class="strip">
+    <figure class="tilt rv"><img src="gym-hall-wide.webp" alt="Общий вид зала с мешками" loading="lazy"></figure>
+    <figure class="tilt rv"><img src="gym-hall-mirror.webp" alt="Зал: мешки и зеркальный потолок" loading="lazy"></figure>
+    <figure class="tilt rv"><img src="gym-bags-closeup.webp" alt="Боксёрские мешки в зале" loading="lazy"></figure>
+    <figure class="tilt rv"><img src="gym-equipment-corner.webp" alt="Шкаф с экипировкой и груша" loading="lazy"></figure>
+  </div></div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="stats" aria-label="Школа в цифрах">
+  <div class="wrap">
+    <div class="stat rv"><b><span data-count="2">2</span></b><span>зала в центре Москвы</span></div>
+    <div class="stat rv"><b><span data-count="3">3</span></b><span>тренера с высшим образованием</span></div>
+    <div class="stat rv"><b><span data-count="150" data-plus="1">150</span><small>+</small></b><span>боёв на ринге у тренера Руслана Буша</span></div>
+    <div class="stat rv"><b><span data-count="4.5" data-dec="1">4,5</span></b><span>рейтинг, 11 оценок</span></div>
+  </div>
+</section>
+
+<!-- ================= DIRECTIONS ================= -->
+<section id="programs">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="script">Направления</span>
+      <h2 class="sec-title wipe">Чему мы учим</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="mosaic">
+      <article class="mt tilt">
+        <div class="ic"><svg viewBox="0 0 32 32"><circle cx="16" cy="9" r="4"/><path d="M8 28v-7a8 8 0 0116 0v7"/></svg></div>
+        <div><h3>Детский бокс</h3><p>Мальчики и юноши занимаются по группам: от первых шагов в стойке до подготовки к турнирам.</p></div>
+        <a class="link-arrow" href="#prices">Цены <svg viewBox="0 0 22 14"><path d="M0 7h20M14 1l6 6-6 6"/></svg></a>
+      </article>
+      <div class="mp"><img src="kids-ring-sparring.webp" alt="Дети на спарринге в ринге" loading="lazy"></div>
+      <article class="mt tilt">
+        <div class="ic"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="6"/><circle cx="16" cy="16" r="1.5"/></svg></div>
+        <div><h3>Взрослые группы</h3><p>Для тех, кто хочет форму, характер и навык. Группы делятся по уровню подготовки.</p></div>
+        <a class="link-arrow" href="#prices">Расписание <svg viewBox="0 0 22 14"><path d="M0 7h20M14 1l6 6-6 6"/></svg></a>
+      </article>
+      <div class="mp"><img src="tournament-bout.webp" alt="Бой на турнире" loading="lazy"></div>
+      <article class="mt tilt">
+        <div class="ic"><svg viewBox="0 0 32 32"><path d="M5 27V17M13 27V9M21 27V14M29 27V5"/></svg></div>
+        <div><h3>Индивидуальные тренировки</h3><p>Техника атаки и защиты, нагрузка под ваш организм и цели каждого ученика.</p></div>
+        <a class="link-arrow" href="#book">Записаться <svg viewBox="0 0 22 14"><path d="M0 7h20M14 1l6 6-6 6"/></svg></a>
+      </article>
+      <div class="mp"><img src="youth-ring-sparring.webp" alt="Юноши на спарринге" loading="lazy"></div>
+      <article class="mt tilt">
+        <div class="ic"><svg viewBox="0 0 32 32"><path d="M9 4h14v9c0 5-3 8-7 9-4-1-7-4-7-9z"/><path d="M9 7H4c0 4 2 7 5 8M23 7h5c0 4-2 7-5 8M16 22v5M11 29h10"/></svg></div>
+        <div><h3>Соревнования и сборы</h3><p>Готовим к выступлениям на соревнованиях. Проводим летние спортивные сборы по боксу.</p></div>
+        <a class="link-arrow" href="https://peresvetboxing.ru/sorevnovanya" target="_blank" rel="noopener">Подробнее <svg viewBox="0 0 22 14"><path d="M0 7h20M14 1l6 6-6 6"/></svg></a>
+      </article>
+      <div class="mp"><img src="competition-bout.webp" alt="Соревновательный бой" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+<div class="cut" aria-hidden="true"></div>
+
+<!-- ================= COACHES ================= -->
+<section class="sec-dark" id="coaches">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="script">Наши тренеры</span>
+      <h2 class="sec-title wipe">Те, кто ведёт вас на ринг</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="coaches">
+      <article class="coach tilt rv">
+        <div class="pic" data-i="КА"><img src="trainer-kropalev.webp" alt="Андрей Кропалев, тренер по боксу" loading="lazy" onerror="this.remove()"></div>
+        <div class="bd">
+          <span class="role">Тренер по боксу</span>
+          <h3>Кропалев Андрей Викторович</h3>
+          <ul>
+            <li>Кандидат в мастера спорта по боксу</li>
+            <li>Высшее педагогическое образование, университет им. Лесгафта, с отличием, аспирант</li>
+            <li>Более 100 боёв на ринге, победитель общероссийских турниров</li>
+            <li>Тренерский стаж 12 лет</li>
+          </ul>
+        </div>
+      </article>
+      <article class="coach tilt rv">
+        <div class="pic" data-i="БР"><img src="trainer-bush.webp" alt="Руслан Буш, тренер по боксу" loading="lazy" onerror="this.remove()"></div>
+        <div class="bd">
+          <span class="role">Тренер по боксу</span>
+          <h3>Буш Руслан Арминович</h3>
+          <ul>
+            <li>Мастер спорта, победитель Латвии по боксу</li>
+            <li>Высшее педагогическое образование, Даугавпилсский университет</li>
+            <li>Более 150 боёв на ринге</li>
+            <li>Большой опыт подготовки профессиональных боксёров</li>
+          </ul>
+        </div>
+      </article>
+      <article class="coach tilt rv">
+        <div class="pic" data-i="ЖР"><img src="trainer-zharsky.webp" alt="Роман Жарский, тренер" loading="lazy" onerror="this.remove()"></div>
+        <div class="bd">
+          <span class="role">Тренер по самбо</span>
+          <h3>Жарский Роман Владимирович</h3>
+          <ul>
+            <li>Мастер спорта, призёр Москвы по самбо</li>
+            <li>Высшее физкультурное образование, ГЦОЛИФК</li>
+            <li>Главный тренер сборной МИСИС по самбо и боевому самбо</li>
+            <li>Работает с детьми и готовит профессиональных бойцов</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICES ================= -->
+<section id="prices">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="script">Расписание и цены</span>
+      <h2 class="sec-title wipe">Выберите зал</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="tabs rv" role="tablist" aria-label="Залы">
+      <button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true">м. Таганская</button>
+      <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1">м. Сокольники</button>
+    </div>
+
+    <div class="ppanel on" role="tabpanel" id="p0" aria-labelledby="t0">
+      <div class="pcard rv">
+        <h3>Абонемент на месяц</h3><p class="sub">Таганская, Марксистская ул., 9, стр. 1</p>
+        <div class="prow"><span>Детский<small>2 раза в неделю</small></span><b>10 000<small>₽</small></b></div>
+        <div class="prow"><span>Детский<small>3 и более раза в неделю</small></span><b>12 000<small>₽</small></b></div>
+        <div class="prow"><span>Взрослый<small>2 раза в неделю</small></span><b>10 000<small>₽</small></b></div>
+        <div class="prow"><span>Взрослый<small>3 и более раза в неделю</small></span><b>11 000<small>₽</small></b></div>
+      </div>
+      <div class="sched rv">
+        <div class="day"><h4>Пн, Ср, Пт</h4><div class="slots"><span class="slot"><b>16:30</b>мальчики</span><span class="slot"><b>18:00</b>юноши</span><span class="slot"><b>20:00</b>взрослые</span></div></div>
+        <div class="day"><h4>Вт, Чт</h4><div class="slots"><span class="slot"><b>16:00</b>юноши</span><span class="slot"><b>18:00</b>подростки</span><span class="slot"><b>20:00</b>взрослые</span></div></div>
+        <div class="day"><h4>Суббота</h4><div class="slots"><span class="slot"><b>11:00</b>взрослые и подростки</span><span class="slot"><b>13:00</b>юноши</span></div></div>
+      </div>
+    </div>
+
+    <div class="ppanel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
+      <div class="pcard rv">
+        <h3>Абонемент на месяц</h3><p class="sub">Сокольники, 2-я Леснорядская ул., 4</p>
+        <div class="prow"><span>Детский</span><b>7 000<small>₽</small></b></div>
+        <div class="prow"><span>Взрослый</span><b>8 000<small>₽</small></b></div>
+      </div>
+      <div class="sched rv">
+        <div class="day"><h4>Пн, Ср, Пт</h4><div class="slots"><span class="slot"><b>19:00</b>дети</span><span class="slot"><b>20:00</b>взрослые</span></div></div>
+      </div>
+    </div>
+
+    <div class="extra rv">
+      <div class="pcard"><span>Разовая тренировка в группе</span><b>1 500 ₽</b></div>
+      <div class="pcard"><span>Индивидуальная тренировка</span><b>5 000 ₽</b></div>
+    </div>
+  </div>
+</section>
+<div class="cut" aria-hidden="true"></div>
+
+<!-- ================= 3D RING ================= -->
+<section class="hall sec-dark" id="hall">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:0">
+      <span class="script">Фото</span>
+      <h2 class="sec-title wipe">Из зала</h2>
+      <span class="rule"></span>
+      <p class="lead rv">Крутите карусель мышью или пальцем.</p>
+    </div>
+  </div>
+  <div class="ringwrap rv" id="ringwrap" role="group" aria-label="3D-карусель фотографий с тренировок">
+    <div class="ringfloor"></div>
+    <div class="ring" id="ring">
+      <figure class="face" style="--i:0"><img src="girl-punching-bag.webp" alt="Спортсменка бьёт по мешку" draggable="false"><figcaption>Мешок</figcaption></figure>
+      <figure class="face" style="--i:1"><img src="kids-sparring.webp" alt="Дети на спарринге" draggable="false"><figcaption>Спарринг</figcaption></figure>
+      <figure class="face" style="--i:2"><img src="competition-bout.webp" alt="Соревновательный бой" draggable="false"><figcaption>Соревнования</figcaption></figure>
+      <figure class="face" style="--i:3"><img src="kids-bag-training.webp" alt="Дети у мешка" draggable="false"><figcaption>Дети</figcaption></figure>
+      <figure class="face" style="--i:4"><img src="boxer-and-coach.webp" alt="Боксёр и тренер" draggable="false"><figcaption>Стойка</figcaption></figure>
+      <figure class="face" style="--i:5"><img src="kids-ring-sparring.webp" alt="Юные боксёры в ринге" draggable="false"><figcaption>Ринг</figcaption></figure>
+      <figure class="face" style="--i:6"><img src="tournament-bout.webp" alt="Бой на турнире" draggable="false"><figcaption>Турнир</figcaption></figure>
+      <figure class="face" style="--i:7"><img src="junior-boxer-ropes.webp" alt="Юный боксёр у канатов" draggable="false"><figcaption>У канатов</figcaption></figure>
+    </div>
+  </div>
+  <div class="ringctrl">
+    <button class="arrow" id="rprev" aria-label="Повернуть назад"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <span class="hint" id="rcap">Мешок</span>
+    <button class="arrow" id="rnext" aria-label="Повернуть вперёд"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+</section>
+
+<!-- ================= ARTICLES ================= -->
+<section id="articles">
+  <div class="wrap">
+    <div class="sec-head" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div><span class="script">Статьи про бокс и не только</span><h2 class="sec-title wipe">Читайте</h2><span class="rule"></span></div>
+      <a class="btn line rv" href="https://peresvetboxing.ru/articles" target="_blank" rel="noopener">Все статьи</a>
+    </div>
+    <div class="arts">
+      <a class="art tilt rv" href="https://peresvetboxing.ru/articles/tpost/zrlxtt9hl1-trenirovki-po-boksu-dlya-novichkov" target="_blank" rel="noopener">
+        <div class="im"><img src="gym-equipment-corner.webp" alt="" loading="lazy" style="object-position:50% 40%"><span class="dt">30.07.2025</span></div>
+        <div class="bd"><h3>Тренировки по боксу для новичков</h3><p>Как строится обучение с нуля: стойка, работа у зеркала, снаряды, затем пары.</p><span class="link-arrow">Читать <svg viewBox="0 0 22 14"><path d="M0 7h20M14 1l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="art tilt rv" href="https://peresvetboxing.ru/articles/tpost/kkxygkgb21-tehnika-udara-v-bokse-sekreti-sili-skoro" target="_blank" rel="noopener">
+        <div class="im"><img src="girl-punching-bag.webp" alt="" loading="lazy"><span class="dt">10.08.2025</span></div>
+        <div class="bd"><h3>Техника удара в боксе</h3><p>От чего зависят сила, скорость и точность удара и какие ошибки делают боксёра уязвимым.</p><span class="link-arrow">Читать <svg viewBox="0 0 22 14"><path d="M0 7h20M14 1l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="art tilt rv" href="https://peresvetboxing.ru/articles/tpost/lx6ycth861-boks-dlya-samooboroni" target="_blank" rel="noopener">
+        <div class="im"><img src="adults-sparring.webp" alt="" loading="lazy"><span class="dt">08.08.2025</span></div>
+        <div class="bd"><h3>Бокс для самообороны</h3><p>Какие элементы боксёрской защиты пригодятся на улице и какие правила стоит запомнить.</p><span class="link-arrow">Читать <svg viewBox="0 0 22 14"><path d="M0 7h20M14 1l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="art tilt rv" href="https://peresvetboxing.ru/articles/tpost/58k0ez18v1-vosstanovlenie-posle-trenirovok-po-boksu" target="_blank" rel="noopener">
+        <div class="im"><img src="gym-hall-mirror.webp" alt="" loading="lazy" style="object-position:50% 60%"><span class="dt">05.08.2025</span></div>
+        <div class="bd"><h3>Восстановление после тренировок</h3><p>Массаж, баня, питание, растяжка и другие способы быстрее вернуться в форму.</p><span class="link-arrow">Читать <svg viewBox="0 0 22 14"><path d="M0 7h20M14 1l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="art tilt rv" href="https://peresvetboxing.ru/articles/tpost/9pbx3r1c61-boks-sssr-protiv-boksa-usa-sovetskii-bok" target="_blank" rel="noopener">
+        <div class="im"><img src="tournament-bout.webp" alt="" loading="lazy"><span class="dt">03.08.2025</span></div>
+        <div class="bd"><h3>Бокс СССР против бокса USA</h3><p>Две школы бокса: как готовили спортсменов, какую тактику выбирали и чем это закончилось на Олимпиадах.</p><span class="link-arrow">Читать <svg viewBox="0 0 22 14"><path d="M0 7h20M14 1l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="art tilt rv" href="https://peresvetboxing.ru/articles/tpost/8mmdbtd501-kontrataka-v-bokse-kak-ispolzovat-oshibk" target="_blank" rel="noopener">
+        <div class="im"><img src="competition-bout.webp" alt="" loading="lazy"><span class="dt">02.08.2025</span></div>
+        <div class="bd"><h3>Контратака в боксе</h3><p>Тактика первого и второго номера и ошибки соперника, на которых строится контратака.</p><span class="link-arrow">Читать <svg viewBox="0 0 22 14"><path d="M0 7h20M14 1l6 6-6 6"/></svg></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="rev" aria-label="Отзывы">
+  <div class="wrap">
+    <div class="box rv">
+      <div class="big">4,5</div>
+      <div>
+        <div class="stars" aria-label="Рейтинг 4,5 из 5">★★★★★</div>
+        <h3>Хорошее место 2026</h3>
+        <p>Рейтинг школы на Яндекс Картах по 11 оценкам. Отзывы можно прочитать в карточке организации.</p>
+      </div>
+      <a class="btn line" href="https://yandex.ru/maps/org/boksyorskiy_klub_peresvet/235146523571/" target="_blank" rel="noopener">Читать отзывы</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOKING ================= -->
+<section class="book" id="book">
+  <div class="wrap">
+    <div>
+      <span class="script">Запись на тренировку</span>
+      <h2 class="sec-title wipe">Сделай первый шаг</h2>
+      <span class="rule"></span>
+      <p class="lead rv">Заполните анкету: откроется личный чат в Telegram с готовым сообщением. Останется нажать «Отправить».</p>
+      <a class="bigtel rv" href="tel:+79681801567">+7 (968) 180-15-67</a>
+    </div>
+    <div class="formcard rv">
+      <form id="form" novalidate>
+        <div class="two">
+          <div><label for="f-name">Имя</label><input id="f-name" name="name" placeholder="Как вас зовут" autocomplete="name" enterkeyhint="next" required></div>
+          <div><label for="f-tel">Телефон</label><input id="f-tel" name="tel" type="tel" inputmode="tel" placeholder="+7" autocomplete="tel" required></div>
+        </div>
+        <div class="two">
+          <div><label for="f-club">Зал</label>
+            <select id="f-club" name="club"><option>м. Таганская</option><option>м. Сокольники</option></select></div>
+          <div><label for="f-dir">Направление</label>
+            <select id="f-dir" name="dir"><option>Детская группа</option><option>Взрослая группа</option><option>Индивидуальная тренировка</option><option>Разовая тренировка</option></select></div>
+        </div>
+        <button class="btn" type="submit"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l8-6"/></svg>Отправить в Telegram</button>
+        <p class="tglink">или позвоните: <a href="tel:+79681801567">+7 (968) 180-15-67</a></p>
+        <p class="note" id="note" role="status">Есть противопоказания. Посоветуйтесь с врачом.</p>
+      </form>
+    </div>
+  </div>
+</section>
+<div class="cut" aria-hidden="true"></div>
+
+<!-- ================= CONTACTS ================= -->
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:clamp(30px,4vw,50px)">
+      <span class="script">Контакты</span>
+      <h2 class="sec-title wipe">Ждём в зале</h2>
+      <span class="rule"></span>
+    </div>
+    <div class="cgrid">
+      <article class="hcard tilt rv"><span class="st">Зал 1</span><h3>м. Таганская</h3><p>Москва, Марксистская ул., 9, стр. 1</p><a class="link-arrow" data-addr="Москва, Марксистская улица, 9, строение 1" href="https://yandex.ru/maps/" target="_blank" rel="noopener">Построить маршрут <svg viewBox="0 0 22 14"><path d="M0 7h20M14 1l6 6-6 6"/></svg></a></article>
+      <article class="hcard tilt rv"><span class="st">Зал 2</span><h3>м. Сокольники</h3><p>Москва, 2-я Леснорядская ул., 4</p><a class="link-arrow" data-addr="Москва, 2-я Леснорядская улица, 4" href="https://yandex.ru/maps/" target="_blank" rel="noopener">Построить маршрут <svg viewBox="0 0 22 14"><path d="M0 7h20M14 1l6 6-6 6"/></svg></a></article>
+    </div>
+    <dl class="clist rv">
+      <div><dt>Телефон</dt><dd><a href="tel:+79681801567">+7 (968) 180-15-67</a></dd></div>
+      <div><dt>Почта</dt><dd class="mail"><a href="mailto:info@peresvetboxing.ru">info@peresvetboxing.ru</a></dd></div>
+      <div><dt>Мессенджеры</dt><dd><a href="https://wa.me/79681801567" target="_blank" rel="noopener">WhatsApp</a>, <a href="https://t.me/kropalev7" target="_blank" rel="noopener">Telegram</a></dd></div>
+    </dl>
+    <p class="warn">Есть противопоказания. Посоветуйтесь с врачом.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <a class="logo" href="#top" aria-label="На главную"><img src="logo.png" alt="Школа бокса Пересвет" width="155" height="146"></a>
+      <ul class="menu">
+        <li><a href="#about">О школе</a></li><li><a href="#programs">Направления</a></li><li><a href="#coaches">Тренеры</a></li><li><a href="#prices">Цены</a></li><li><a href="#articles">Статьи</a></li><li><a href="#contacts">Контакты</a></li>
+      </ul>
+      <div class="social">
+        <a href="https://www.instagram.com/boxing_school_peresvet/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+        <a href="https://t.me/kropalev7" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l8-6"/></svg></a>
+        <a href="https://wa.me/79681801567" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 00-7.800 13.500L3 21l4.600-1.200A9 9 0 1012 3z"/><path d="M9 8.500c.300 2.500 2.700 5 5.500 5.500l1.200-1.200-1.800-1.300-.9.600c-.9-.4-1.900-1.400-2.300-2.300l.6-.9-1.300-1.800z"/></svg></a>
+      </div>
+    </div>
+    <div class="bot"><span>© 2026 Школа бокса «Пересвет»</span><a href="https://peresvetboxing.ru/privacy" target="_blank" rel="noopener">Политика обработки персональных данных</a></div>
+  </div>
+</footer>
+
+<div class="dock" id="dock"><a class="btn line" href="tel:+79681801567">Позвонить</a><a class="btn" href="#book">Записаться</a></div>
+
+<script>
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var TOUCH=matchMedia('(hover: none)').matches;
+
+/* embers */
+(function(){
+  var c=document.getElementById('fx'),x=c.getContext&&c.getContext('2d');if(!x||RM)return;
+  var W,H,P=[],spr=document.createElement('canvas');spr.width=spr.height=32;
+  var g=spr.getContext('2d'),gr=g.createRadialGradient(16,16,0,16,16,16);
+  gr.addColorStop(0,'rgba(255,210,150,1)');gr.addColorStop(.3,'rgba(255,70,50,.8)');gr.addColorStop(1,'rgba(255,20,30,0)');
+  g.fillStyle=gr;g.fillRect(0,0,32,32);
+  function mk(r){return{x:Math.random()*W,y:r?Math.random()*H:H+20,s:5+Math.random()*13,v:.25+Math.random()*.85,a:Math.random()*6.28,w:.4+Math.random()*1.4,o:.25+Math.random()*.6}}
+  function size(){var d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);var n=W<700?24:60;while(P.length<n)P.push(mk(true));P.length=n;}
+  size();addEventListener('resize',size);
+  function draw(t){
+    if(!document.hidden){
+      x.clearRect(0,0,W,H);x.globalCompositeOperation='lighter';
+      for(var i=0;i<P.length;i++){var p=P[i];p.y-=p.v;p.x+=Math.sin(t/1000*p.w+p.a)*.45;
+        if(p.y<-20){P[i]=mk(false);continue;}
+        x.globalAlpha=p.o*(.55+.45*Math.sin(t/180+p.a));x.drawImage(spr,p.x,p.y,p.s,p.s);}
+      x.globalAlpha=1;
+    }
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+/* nav / progress / scroll-driven marquee / hero parallax */
+(function(){
+  var nav=document.getElementById('nav'),bar=document.getElementById('progress'),r1=document.getElementById('r1'),r2=document.getElementById('r2'),mq=document.querySelector('.mq'),hb=document.querySelector('.hero-bg img'),tick=false;
+  function upd(){
+    tick=false;var y=scrollY,max=document.documentElement.scrollHeight-innerHeight;
+    nav.classList.toggle('scrolled',y>40);
+    bar.style.transform='scaleX('+(max>0?y/max:0)+')';
+    if(!RM){
+      if(mq){var rect=mq.getBoundingClientRect(),p=(innerHeight-rect.top);r1.style.transform='translateX('+(-p*.35)+'px)';r2.style.transform='translateX('+(-1400+p*.35)+'px)';}
+      if(hb&&y<innerHeight*1.2)hb.style.transform='scale(1.08) translateY('+(y*.12)+'px)';
+    }
+  }
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});
+  addEventListener('resize',upd);upd();
+  var b=document.getElementById('burger');
+  b.addEventListener('click',function(){var o=nav.classList.toggle('open');b.setAttribute('aria-expanded',o);});
+  document.querySelectorAll('#menu a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');b.setAttribute('aria-expanded',false);});});
+})();
+
+/* reveal + count-up (wipe headings are observed through their parent: their own clip-path hides them from the observer) */
+(function(){
+  var els=document.querySelectorAll('.rv,.wipe');
+  function count(el){
+    var to=parseFloat(el.dataset.count),dec=+el.dataset.dec||0,t0=null;
+    if(RM)return;
+    (function step(t){if(!t0)t0=t;var k=Math.min((t-t0)/1500,1),e=1-Math.pow(1-k,3);
+      el.textContent=(to*e).toFixed(dec).replace('.',',');if(k<1)requestAnimationFrame(step);})(performance.now());
+  }
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var map=new Map();
+  function show(list){list.forEach(function(el){el.classList.add('in');el.querySelectorAll('[data-count]').forEach(count);});}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(map.get(e.target)||[]);io.unobserve(e.target);}})},{threshold:0,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e,i){
+    var tgt=e.classList.contains('wipe')?e.parentElement:e;
+    if(e.classList.contains('rv'))e.style.transitionDelay=((i%4)*80)+'ms';
+    if(!map.has(tgt)){map.set(tgt,[]);io.observe(tgt);}
+    map.get(tgt).push(e);
+  });
+})();
+
+/* hero 3D follows pointer */
+(function(){
+  var sc=document.getElementById('scene'),hero=document.getElementById('hero'),bg=hero.querySelector('.hero-bg');
+  if(RM||TOUCH)return;
+  hero.addEventListener('pointermove',function(e){
+    var r=hero.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
+    sc.classList.add('live');
+    sc.style.setProperty('--ry',(px*16)+'deg');sc.style.setProperty('--rx',(-py*10)+'deg');
+    bg.style.setProperty('--mx',((px+.5)*100)+'%');bg.style.setProperty('--my',((py+.5)*100)+'%');
+  });
+  hero.addEventListener('pointerleave',function(){sc.classList.remove('is-moving');sc.classList.remove('live');sc.style.setProperty('--ry','0deg');sc.style.setProperty('--rx','0deg');});
+})();
+
+/* tilt cards */
+(function(){
+  if(RM||TOUCH)return;
+  document.querySelectorAll('.tilt').forEach(function(el){
+    el.addEventListener('pointermove',function(e){
+      var r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+      el.classList.add('is-moving');
+      el.style.transform='rotateX('+((.5-py)*8)+'deg) rotateY('+((px-.5)*10)+'deg) translateY(-5px)';
+      el.style.setProperty('--mx',(px*100)+'%');el.style.setProperty('--my',(py*100)+'%');
+    });
+    el.addEventListener('pointerleave',function(){el.classList.remove('is-moving');el.style.transform='';});
+  });
+})();
+
+/* tabs */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab')),panels=[].slice.call(document.querySelectorAll('.ppanel'));
+  function sel(i,focus){
+    tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i);t.tabIndex=k===i?0:-1;});
+    panels.forEach(function(p,k){p.hidden=k!==i;p.classList.toggle('on',k===i);
+      if(k===i)p.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});});
+    document.getElementById('f-club').selectedIndex=i;
+    if(focus)tabs[i].focus({preventScroll:true});
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){sel(i)});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight')sel((i+1)%tabs.length,true);
+      if(e.key==='ArrowLeft')sel((i-1+tabs.length)%tabs.length,true);
+    });
+  });
+})();
+
+/* 3D ring (8 faces) */
+(function(){
+  var ring=document.getElementById('ring'),wrap=document.getElementById('ringwrap'),faces=[].slice.call(ring.querySelectorAll('.face')),cap=document.getElementById('rcap');
+  var n=faces.length,step=360/n,names=faces.map(function(f){return f.querySelector('figcaption').textContent;});
+  var a=0,vel=0,drag=false,lx=0,target=null,visible=true,last=-1;
+  function render(){
+    ring.style.transform='translateZ(calc(var(--r) * -1)) rotateX(-7deg) rotateY('+a+'deg)';
+    faces.forEach(function(f,i){var c=Math.cos((i*step+a)*Math.PI/180);f.style.filter='brightness('+(.3+.7*Math.max(c,0))+')';});
+    var idx=(((-Math.round(a/step))%n)+n)%n;
+    if(idx!==last){last=idx;cap.textContent=names[idx];}
+  }
+  new IntersectionObserver(function(es){visible=es[0].isIntersecting;}).observe(wrap);
+  function frame(){
+    if(visible){
+      if(drag){}
+      else if(target!==null){a+=(target-a)*.09;if(Math.abs(target-a)<.15){a=target;target=null;}}
+      else{a+=vel;vel*=.94;if(Math.abs(vel)<.04){vel=0;if(!RM)a-=.12;}}
+      render();
+    }
+    requestAnimationFrame(frame);
+  }
+  wrap.addEventListener('pointerdown',function(e){drag=true;lx=e.clientX;vel=0;target=null;wrap.classList.add('drag');try{wrap.setPointerCapture(e.pointerId);}catch(_){}});
+  wrap.addEventListener('pointermove',function(e){if(!drag)return;var d=e.clientX-lx;lx=e.clientX;a+=d*.42;vel=d*.42;});
+  function end(){drag=false;wrap.classList.remove('drag');}
+  wrap.addEventListener('pointerup',end);wrap.addEventListener('pointercancel',end);
+  function snap(dir){var base=target!==null?target:Math.round(a/step)*step;target=base+dir*step;vel=0;}
+  document.getElementById('rprev').addEventListener('click',function(){snap(1)});
+  document.getElementById('rnext').addEventListener('click',function(){snap(-1)});
+  render();requestAnimationFrame(frame);
+})();
+
+/* map links */
+document.querySelectorAll('[data-addr]').forEach(function(a){a.href='https://yandex.ru/maps/?text='+encodeURIComponent(a.dataset.addr);});
+
+/* form -> personal Telegram chat with the application pre-filled as one line */
+(function(){
+  var f=document.getElementById('form'),note=document.getElementById('note');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=f.name.value.trim(),t=f.tel.value.trim();
+    if(!n||t.replace(/\D/g,'').length<10){note.textContent='Укажите имя и телефон, чтобы мы могли ответить.';note.style.color='#ff6b75';(n?f.tel:f.name).focus();return;}
+    var msg=('Заявка с сайта школы бокса «Пересвет». Имя: '+n+'. Телефон: '+t+'. Зал: '+f.club.value+'. Направление: '+f.dir.value+'.').replace(/\s+/g,' ');
+    try{if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(msg).catch(function(){});}catch(_){}
+    note.style.color='';
+    note.textContent='Открываем Telegram. Сообщение уже вставлено, нажмите «Отправить». Если текста нет, он скопирован: вставьте и отправьте.';
+    var url='https://t.me/ilyamire?text='+encodeURIComponent(msg);
+    if(TOUCH)location.href=url;else window.open(url,'_blank','noopener');
+  });
+})();
+
+/* dock hides while the form is visible */
+(function(){
+  var d=document.getElementById('dock'),b=document.getElementById('book');
+  if(!('IntersectionObserver' in window))return;
+  new IntersectionObserver(function(es){d.classList.toggle('hide',es[0].isIntersecting);},{threshold:.2}).observe(b);
+})();
+</script>
+</body>
+</html>
